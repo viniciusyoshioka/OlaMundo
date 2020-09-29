@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/7cfe5d36cb.js" crossorigin="anonymous"></script>
     </head>
+
     <body>
         <div id="title">
             Olá, mundo!
@@ -15,31 +16,71 @@
             <i class="far fa-sun fa-2x" ></i>
         </button>
     </body>
+
     <script>
-        function switch_theme() {
-            // const icon = document.querySelector('i')
 
-            // console.log(icon.classList)
+        const styles_keys = [
+            '--background',
+            '--color',
+            '--button-background',
+            '--button-color'
+        ]
 
-            // if (icon.classList !== -1) {
-            //     icon.classList.remove('fa-sun')
-            //     icon.classList.add('fa-moon')
-            // } else if (icon.classList.indexOf('fa-moon') !== -1) {
-            //     icon.classList.remove('fa-moon')
-            //     icon.classList.add('fa-sun')
-            // }
-
-            // console.log(icon.classList)
+        const light_theme = {
+            '--background': 'rgb(255, 255, 255)',
+            '--color': 'rgb(0, 0, 0)',
+            '--button-background': 'rgb(60, 60, 60)',
+            '--button-color': 'rgb(255, 255, 255)',
         }
+
+        const dark_theme = {
+            '--background': 'rgb(0, 0, 0)',
+            '--color': 'rgb(255, 255, 255)',
+            '--button-background': 'rgb(60, 60, 60)',
+            '--button-color': 'rgb(255, 255, 255)',
+        }
+
+        function switch_theme() {
+            // Switch button icon
+
+            const icon = document.querySelector('i')
+
+            if (icon.classList.value.indexOf('fa-sun') !== -1) {
+                icon.classList.remove('fa-sun')
+                icon.classList.add('fa-moon')
+                switch_theme_color('light')
+            } else if (icon.classList.value.indexOf('fa-moon') !== -1) {
+                icon.classList.remove('fa-moon')
+                icon.classList.add('fa-sun')
+                switch_theme_color('dark')
+            }
+        }
+
+        function switch_theme_color(to_theme) {
+            const html = document.querySelector('html')
+
+            let to_theme_object
+            if (to_theme === 'light') {
+                to_theme_object = light_theme
+            } else if (to_theme === 'dark') {
+                to_theme_object = dark_theme
+            }
+
+            styles_keys.forEach((key) => {
+                html.style.setProperty(key, to_theme_object[key])
+            })
+        }
+
     </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
         html {
             --background: rgb(0, 0, 0);
             --color: rgb(255, 255, 255);
-            --buton-background: rgb(150, 150, 150);
-            --button-color: rgb(0, 0, 0);
+            --buton-background: rgb(60, 60, 60);
+            --button-color: rgb(255, 255, 255);
         }
 
         body {
