@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Página de teste</title>
+        <script src="https://kit.fontawesome.com/7cfe5d36cb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="title">
+            Olá, mundo!
+        </div>
+
+        <button id="switch" onclick="switch_theme()">
+            <i class="far fa-sun fa-2x" ></i>
+        </button>
+    </body>
+    <script>
+        function switch_theme() {
+            // const icon = document.querySelector('i')
+
+            // console.log(icon.classList)
+
+            // if (icon.classList !== -1) {
+            //     icon.classList.remove('fa-sun')
+            //     icon.classList.add('fa-moon')
+            // } else if (icon.classList.indexOf('fa-moon') !== -1) {
+            //     icon.classList.remove('fa-moon')
+            //     icon.classList.add('fa-sun')
+            // }
+
+            // console.log(icon.classList)
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        html {
+            --background: rgb(0, 0, 0);
+            --color: rgb(255, 255, 255);
+            --buton-background: rgb(150, 150, 150);
+            --button-color: rgb(0, 0, 0);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--background);
+        }
+
+        #title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            font-family: "Roboto", "sans-serif";
+            font-size: 25pt;
+            color: var(--color)
+        }
+
+        #switch {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: var(--buton-background);
+            border: none;
+            outline: none;
+        }
+
+        i {
+            color: var(--button-color);
+        }
+    </style>
+</html>
